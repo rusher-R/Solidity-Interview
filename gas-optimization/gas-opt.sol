@@ -8,12 +8,17 @@ contract GasOpt {
     uint public total;
 
     function gasOpt(uint[] memory nums) external {
-        for (uint i = 0; i < nums.length; i += 1) {
+
+        uint _total = total;
+
+        for (uint i = 0; i < nums.length; ++i) {
             bool isEven = nums[i] % 2 == 0;
             bool isLessThan99 = nums[i] < 99;
             if (isEven && isLessThan99) {
-                total += nums[i];
+                _total += nums[i];
             }
         }
+
+        total = _total;
     }
 }
