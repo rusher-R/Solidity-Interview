@@ -8,18 +8,29 @@
 
 ## Please provide solution and explain
 
-totalSupply = 1000lp
 reserve0 = 100ETH
 reserve1 = 10000DAI
-amount0 = 10ETH
-amount1 = ?
+amount0 = (10-a)ETH
+amount1 = b DAI
 
 reserve0 * reserve1 = K = 1000000
-reserve0 + amount0 = 100 + 10 ETH
-DAI In Pool = K / (reserve0 + amount0) = 1000000 / 110
-DAI BACK TO User = 100000 - DAI In Pool
 
-ETH-DAI = 10 ETH AND DAI In Pool
+1. current liquidity ratio == will added liquidity ratio
+  100 ETH / 10000 DAI = (10-a) / b
+
+2. x * y = k
+  (100 ETH + (10 ETH - a)) * (10000 DAI + b) = K
+  
+3. b = 100 * (10-a) => (110 - a) * (10000 + 100 * (10 - a)) = 1000000
+
+4. 一元二次方程求根公式，<img width="489" alt="image" src="https://github.com/rusher-R/Solidity-Interview/assets/13580181/4a6dc7c5-6d22-4517-9930-70bba0bdc10d">
+
+5. a = 5.24
+
+6. 5.24 eth => dai amount, make lp:  (4.76 eth - dai amount)
+
+
+
 
 
 ## Reference:
